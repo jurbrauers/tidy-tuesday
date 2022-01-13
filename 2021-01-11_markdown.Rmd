@@ -23,6 +23,13 @@ library(mapproj)
 library(viridis)
 library(cowplot)
 
+library(rvest)
+library(tidyverse)
+library(fs)
+library(RColorBrewer)
+library(rgdal)
+
+
 ```
 
 
@@ -42,12 +49,6 @@ colony <- tuesdata$colony
 ```
 
 ```{r}
-library(rvest)
-library(tidyverse)
-library(fs)
-library(geojsonio)
-library(RColorBrewer)
-library(rgdal)
 
 # download site
 url <- "https://usda.library.cornell.edu/concern/publications/rn301137d?locale=en"
@@ -226,7 +227,7 @@ plot(spdf)
 
 
 ```{r}
-# this is the approach by Lee Melvin Peralta, @melvinmperalta, just to see how Tidy Tuesdat works. All credits go to him!
+# this is the approach by Lee Melvin Peralta, @melvinmperalta, just to see how Tidy Tuesday works. All credits go to him!
 
 #data wrangling
 colony_total_year <- colony %>% group_by(year) %>% summarize(total = sum(colony_n, na.rm = TRUE))
